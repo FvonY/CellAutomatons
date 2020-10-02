@@ -43,12 +43,12 @@ int Conway::update(const int* state, int loc_x, int loc_y)
 int Conway::countLivingNeighbours(const int* state, int loc_x, int loc_y)
 {
     int counter = 0;
-
+    
     int x_lower = loc_x - 1 < 0 ? 0 : loc_x - 1;
-    int x_upper = loc_x + 1 > m_size ? m_size : loc_x + 1;
+    int x_upper = loc_x + 1 > m_size - 1 ? m_size - 1: loc_x + 1;
     int y_lower = loc_y - 1 < 0 ? 0 : loc_y - 1;
-    int y_upper = loc_y + 1 > m_size ? m_size : loc_y + 1;
-
+    int y_upper = loc_y + 1 > m_size - 1 ? m_size - 1 : loc_y + 1;
+    
     //std::cout << x_lower << " " << x_upper << " " << y_lower << " " << y_upper << std::endl;
 
     for (unsigned int m = y_lower; m <= y_upper; ++m)

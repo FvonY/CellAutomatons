@@ -39,12 +39,6 @@ void Cell::init()
 
 void Cell::appendMe(sf::VertexArray& array)
 {
-    /*
-   // KEEP ME FFS
-   // Some fancy light rays
-   m_quad[0].color = m_color;
-   array.append(t.transformPoint(m_quad[0].position));
-   */
     sf::Vertex temp;
     
     temp = getTransform().transformPoint(m_quad[0].position);

@@ -137,6 +137,8 @@ int main()
     Cell cell(cell_size, cell_padding, cell_color);
     Conway conway(cells_x);
 
+    //current_state[cells_x][cells_x] = 12;
+
     while (window.isOpen())
     {
         sf::Event event;
