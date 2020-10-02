@@ -1,22 +1,6 @@
 #include "stdafx.h"
 
-#include "Conway.h"
 #include "Automaton.h"
-
-void resetState(int* state, int cells)
-{
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0, 1);
-
-    for (int y = 0; y < cells; y++)
-    {
-        for (int x = 0; x < cells; x++)
-        {
-            *(state + x + cells * y) = dis(gen);
-        }
-    }
-}
 
 int main()
 {   
@@ -25,18 +9,7 @@ int main()
 
     sf::Clock clock;
 
-    sf::VertexArray varray;
-    varray.setPrimitiveType(sf::PrimitiveType::Quads);
-
-    int cell_size = 20;
-    int cell_padding = 1;
-
-    constexpr auto CELL_COUNT = 40;
-
-    const unsigned int cells_x = CELL_COUNT;
-    const unsigned int cells_y = CELL_COUNT;
-
-    Automaton automat(160, 5, 0, sf::Color::Black, sf::Color::Red);
+    Automaton automat(80, 10, 1, sf::Color(10, 10, 10, 255), sf::Color(255, 80, 40, 255));
     automat.resetCurrentState();
 
     while (window.isOpen())
@@ -55,15 +28,17 @@ int main()
 
         clock.restart();
 
-        window.clear(sf::Color(64, 64, 64, 255));
+        window.clear(sf::Color(48, 48, 48, 255));
 
         automat.update();
         automat.draw(window, sf::RenderStates::Default);
 
         window.display();
 
-        //int time = clock.getElapsedTime().asMicroseconds;
-        //std::cout << "Calc: " << time << "\n";
+        /*
+        sf::Time time = clock.getElapsedTime();
+        std::cout << "Calctime: " << time.asMicroseconds() << "\n";
+        */
     }
 
     return 0;

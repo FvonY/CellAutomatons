@@ -149,7 +149,6 @@
   <ItemGroup>
     <ClCompile Include="Automaton.cpp" />
     <ClCompile Include="Cell.cpp" />
-    <ClCompile Include="Conway.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -159,7 +158,6 @@
   <ItemGroup>
     <ClInclude Include="Automaton.h" />
     <ClInclude Include="Cell.h" />
-    <ClInclude Include="Conway.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
