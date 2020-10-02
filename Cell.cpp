@@ -35,6 +35,8 @@ void Cell::init()
     m_quad[3] = sf::Vertex(sf::Vector2f(m_padding, m_size - m_padding), m_color);
 
     this->setPosition(0.f, 0.f);
+    std::cout << "Cell is init:" << m_size << "\n";
+
 }
 
 void Cell::appendMe(sf::VertexArray& array)

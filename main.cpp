@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 #include "Conway.h"
-#include "Cell.h"
+#include "Automaton.h"
 
 void resetState(int* state, int cells)
 {
@@ -139,6 +139,10 @@ int main()
 
     //current_state[cells_x][cells_x] = 12;
 
+    // TESTEN
+    Automaton automat(40, 20, 2, sf::Color::Black, sf::Color::Red);
+    automat.resetCurrentState();
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -150,14 +154,15 @@ int main()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
         {
-            resetState(current_state[0], CELL_COUNT);
+            //resetState(current_state[0], CELL_COUNT);
+            automat.resetCurrentState();
         }
 
         clock.restart();
 
         window.clear(sf::Color(64, 64, 64, 255));
-        varray.clear();
-
+        //varray.clear();
+        /*
         for (unsigned int y = 0; y < cells_y; ++y)
         {
             for (unsigned int x = 0; x < cells_x; ++x)
@@ -181,11 +186,15 @@ int main()
         //std::cout << "Varray ist: " << varray.getVertexCount() << std::endl;
 
         window.draw(varray);
+        */
+
+        automat.update();
+        automat.draw(window, sf::RenderStates::Default);
+
         window.display();
 
-        float time = clock.getElapsedTime().asMicroseconds();
-
-        std::cout << "Calc time: " << time << "\n";
+        //float time = clock.getElapsedTime().asMicroseconds();
+        //std::cout << "Calc time: " << time << "\n";
 
         for (unsigned int y = 0; y < cells_y; ++y)
         {
